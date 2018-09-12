@@ -87,6 +87,8 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+        // handle async
         beforeEach(function(done) {
             loadFeed(0, function(){
                 done();
@@ -98,10 +100,27 @@ $(function() {
             expect(entries).toBeGreaterThan(0);
         });
     });
-    /* TODO: Write a new test suite named "New Feed Selection" */
 
+    /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+
+        let initialFeed;
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                initialFeed = document.querySelector('.feed').innerHTML;
+
+                loadFeed(1, function() {
+                    done();
+                });
+            });
+        });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        it('changes content on new feed load', function() {
+            let newFeed = document.querySelector('.feed').innerHTML;
+            expect(initialFeed).not.toBe(newFeed);
+        });
+    });    
 }());

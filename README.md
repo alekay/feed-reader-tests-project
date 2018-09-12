@@ -5,8 +5,10 @@ This project is a web-based application that reads RSS feeds using Jasmine.
 The original developer of this application clearly saw the value in testing, they had already included Jasmine and started writing the first test suite. The developer left the company in the middle of writing the test suites that need to be completed (by me).
 
 ## How to run the application
+- Download or clone the project
 - Open the index.html
 - Tests are in the feedreader.js file
+- Locate tests at the bottom of the index.html page
 - Tests that are green have passed, red have failed
 
 ## Tests

@@ -1,7 +1,7 @@
 // all tests placed within $() function so that they don't run until DOM is ready
 $((() => {
 
-    // RSS Feeds test suite
+    // RSS feeds test suite
     describe('RSS Feeds', () => {
 
         // test to make sure allFeeds variable has been defined and is not empty

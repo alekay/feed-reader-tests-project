@@ -41,7 +41,7 @@ $((() => {
         //  test ensures the menu changes visibility when the icon is clicked
         it('menu appears', () => {
             menu.click();
-            expect(body.classList.contains('menu-hidden')).not.toBe(true);
+            expect(body.classList.contains('menu-hidden')).toBe(false);
 
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(true);

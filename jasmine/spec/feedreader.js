@@ -12,10 +12,10 @@ $((() => {
 
         // test that loops through each feed in allFeeds object and ensures URL is defined
         it('urls are defined and not empty', () => {
-            for (let i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url.length).not.toBe(0);
-            }
+            allFeeds.forEach( feed => {
+                expect(feed.url).toBeTruthy();
+                expect(feed.url.length).not.toBe(0);
+            }); 
         });
        
         // test that loops through each feed in allFeeds to ensure it has a name defined and name is not empty
@@ -35,16 +35,16 @@ $((() => {
 
         // test ensures the menu element is hidden by defualt
         it('menu is hidden by default', () => {
-            expect(body.className).toContain('menu-hidden');
+            expect(body.classList.contains('menu-hidden')).toBe(true);
         });
 
         //  test ensures the menu changes visibility when the icon is clicked
         it('menu appears', () => {
             menu.click();
-            expect(body.className).not.toContain('menu-hidden');
+            expect(body.classList.contains('menu-hidden')).not.toBe(true);
 
             menu.click();
-            expect(body.className).toContain('menu-hidden');
+            expect(body.classList.contains('menu-hidden')).toBe(true);
         });
     });
 
